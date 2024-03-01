@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreign('exercise_id')->references('id')->on('exercises')->onDelete('cascade');
             $table->primary(['category_id', 'exercise_id']);
         });
+
     }
 
     /**
