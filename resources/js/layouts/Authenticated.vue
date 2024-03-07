@@ -144,7 +144,7 @@ const isOutsideClicked = (event) => {
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 .p-breadcrumb .p-breadcrumb-list {
     margin: 0 !important; 
     padding: 0;

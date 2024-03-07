@@ -20,9 +20,9 @@ return new class extends Migration
             $table->integer('stock');
             $table->string('numero_serie')->nullable();
             $table->unsignedBigInteger('proveedor_id');
-            $table->foreign('marca_id')->references('id')->on('marcas')->onDelete('cascade');
-            $table->foreign('familia_id')->references('id')->on('familias')->onDelete('cascade'); 
-            $table->foreign('proveedor_id')->references('id')->on('proveedores')->onDelete('cascade'); 
+            $table->foreign('marca_id')->references('id')->on('marcas');
+            $table->foreign('familia_id')->references('id')->on('familias'); 
+            $table->foreign('proveedor_id')->references('id')->on('proveedores'); 
             $table->decimal('precioCoste', 8, 2); 
             $table->decimal('pvp', 8, 2);
             $table->boolean('encurso')->default(false);
@@ -30,7 +30,7 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-
+        //materiales  jenifer
     /**
      * Reverse the migrations.
      */

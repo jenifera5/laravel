@@ -37,7 +37,7 @@ class TaskController extends Controller
         ]);
         $data = $request->all();
         $task = Task::find($id);
-        $task->update($data);
+        $task-> update($data);
         $response = [
             'success'=> true,
             'message'=>'la tarea se ha creado correctamente',

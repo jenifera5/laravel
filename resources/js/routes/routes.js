@@ -186,7 +186,27 @@ export default [
                     }
                 ]
             },
+            {
+                name: 'tasks',
+                path: 'tasks',
+                meta: { breadCrumb: 'tasks'},
+                children: [
+                    {
+                        name: 'tasks.index',
+                        path: '',
+                        component: () => import('../views/admin/tasks/Index.vue'),
+                        meta: { breadCrumb: 'View task' }
+                    },
+                    {
+                        name: 'task.create',
+                        path: 'create',
+                        component: () => import('../views/admin/tasks/create.vue'),
+                        meta: { breadCrumb: ' Create task' }
+                    },
 
+                    
+                ]
+            },
             {
                 name: 'permissions',
                 path: 'permissions',

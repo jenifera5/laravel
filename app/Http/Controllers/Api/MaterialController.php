@@ -10,8 +10,8 @@ class MaterialController extends Controller
   
     public function index()
     {
-        $materiales = Material::all();
-        return $materiales;
+        $materials = Material::all();
+        return $materials;
     }
 
   
@@ -23,17 +23,18 @@ class MaterialController extends Controller
    
     public function store(Request $request)
     {
-        // Valida los datos del formulario
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-        ]);
+        $request->validate(['name'=>'Required|max:10',
+        'description'=>'required'
+    ]);
+    $data = $request->all();
+    $materials= Material ::create($data);
 
-        // Crea un nuevo material con los datos del formulario y lo guarda en la base de datos
-        Material::create($request->all());
-
-        return redirect()->route('materiales.index')
-                         ->with('success', 'Material creado exitosamente.');
+    $response = [
+    'success'=> true,
+    'message'=>' el material se ha creado correctamente',
+    'data'=> $materials
+    ];
+    return response()->json();
     }
 
    
