@@ -19,18 +19,20 @@ return new class extends Migration
             $table->text('description');
             $table->integer('stock');
             $table->string('numero_serie')->nullable();
-            $table->unsignedBigInteger('proveedor_id');
+            $table->unsignedBigInteger('proveidors_id');
             $table->foreign('marca_id')->references('id')->on('marcas');
-            $table->foreign('familia_id')->references('id')->on('familias'); 
-            $table->foreign('proveedor_id')->references('id')->on('proveedores'); 
-            $table->decimal('precioCoste', 8, 2); 
+            $table->foreign('familia_id')->references('id')->on('familias');
+            $table->foreign('proveidors_id')->references('id')->on('proveidors');
+            $table->decimal('precioCoste', 8, 2);
             $table->decimal('pvp', 8, 2);
             $table->boolean('encurso')->default(false);
             $table->text('observaciones')->nullable();
             $table->timestamps();
         });
+
+        // Mi comentario
     }
-        //materiales  jenifer 2
+
     /**
      * Reverse the migrations.
      */
