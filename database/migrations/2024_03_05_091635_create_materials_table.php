@@ -30,7 +30,7 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-        //materiales  jenifer
+        //materiales  jenifer 2
     /**
      * Reverse the migrations.
      */
