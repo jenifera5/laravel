@@ -23,7 +23,7 @@ class ExerciseController extends Controller
 
         return ExerciseResource::collection($exercises);
     }
-
+ // img
     public function store(StoreExerciseRequest $request)
     {
         $this->authorize('exercise-create');

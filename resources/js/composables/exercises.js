@@ -43,7 +43,7 @@ export default function useExercises() {
                 exercise.value = response.data.data;
             })
     }
-
+//imagenes
     const storeExercise = async (exercise) => {
         if (isLoading.value) return;
 

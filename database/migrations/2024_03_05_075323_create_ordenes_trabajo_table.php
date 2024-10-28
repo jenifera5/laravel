@@ -14,11 +14,17 @@ return new class extends Migration
         Schema::create('ordenes_trabajo', function (Blueprint $table) {
             $table->id();
             $table->string('descripcion');
-            $table->string('cliente');
-            $table->string('material');
-            $table->time('horas');
-            $table->string('operario');
+            $table->double('horas');
+            $table->dateTime('date_open')->nullable();
+            $table->dateTime('date_close')->nullable();
             $table->timestamps();
+            $table->unsignedBigInteger('operario_id');
+            $table->foreign('operario_id')->references('id')->on('users');
+            $table->unsignedBigInteger('client_id');
+            $table->foreign('client_id')->references('id')->on('clients');
+            $table->unsignedBigInteger('direccion_id');
+            $table->foreign('direccion_id')->references('id')->on('direccions');
+
         });
     }
 
@@ -29,4 +35,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('ordenes_trabajo');
     }
+
 };

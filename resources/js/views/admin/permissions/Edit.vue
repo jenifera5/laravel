@@ -7,7 +7,7 @@
                         <!-- Title -->
                         <div class="mb-3">
                             <label for="post-title" class="form-label">
-                                Title
+                                Nom del Permís
                             </label>
                             <input v-model="permission.name" id="post-title" type="text" class="form-control">
                             <div class="text-danger mt-1">
@@ -23,8 +23,8 @@
                         <div class="mt-4">
                             <button :disabled="isLoading" class="btn btn-primary">
                                 <div v-show="isLoading" class=""></div>
-                                <span v-if="isLoading">Processing...</span>
-                                <span v-else>Update</span>
+                                <span v-if="isLoading">Processant...</span>
+                                <span v-else>Actualitza</span>
                             </button>
                         </div>
                     </form>

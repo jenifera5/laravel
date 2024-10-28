@@ -60,6 +60,10 @@ class UserController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->apellido =$request->apellido;
+        $user->dni=$request->dni;
+        $user->direccion=$request->direccion;
+        $user->telefono=$request->telefono;
         $user->password = Hash::make($request->password);
 
         if ($user->save()) {
@@ -95,6 +99,10 @@ class UserController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->apellido =$request->apellido;
+        $user->dni=$request->dni;
+        $user->direccion=$request->direccion;
+        $user->telefono=$request->telefono;
         if(!empty($request->password)) {
             $user->password = Hash::make($request->password) ?? $user->password;
         }

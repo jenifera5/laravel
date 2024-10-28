@@ -5,7 +5,7 @@
                 <div class="card-body">
                     <form @submit.prevent="submitForm">
                         <div class="mb-3">
-                            <label for="user-title" class="form-label">Name</label>
+                            <label for="user-title" class="form-label">Nom</label>
                             <input v-model="user.name" id="user-title" type="text" class="form-control">
                             <div class="text-danger mt-1">
                                 {{ errors.name }}
@@ -43,7 +43,7 @@
                         <!-- Role -->
                         <div class="mb-3">
                             <label for="user-category" class="form-label">
-                                Role
+                                Rol
                             </label>
                             <v-select multiple  v-model="user.role_id" :options="roleList" :reduce="role => role.id" label="name" class="form-control" />
                             <div class="text-danger mt-1">
@@ -59,8 +59,8 @@
                         <div class="mt-4">
                             <button :disabled="isLoading" class="btn btn-primary">
                                 <div v-show="isLoading" class=""></div>
-                                <span v-if="isLoading">Processing...</span>
-                                <span v-else>Save</span>
+                                <span v-if="isLoading">Processant...</span>
+                                <span v-else>Guarda</span>
                             </button>
                         </div>
                     </form>

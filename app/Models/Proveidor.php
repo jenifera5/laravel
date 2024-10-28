@@ -8,25 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Proveidor extends Model
 {
     use HasFactory;
-
-    protected $fillable=['name','nif','direccio','telefon','telefon2','email','contacte','enCurs','diaCobrament','observacions','cp_id','provincia_id',];
-
+    protected $fillable=['id','name','nif','telefon','telefon2','email','contacte','encurs','diacobrament','observacions'];
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public function direccions_proveidors()
+{
+    return $this->hasMany(Direccion_proveidor::class, 'proveidor_id');
+}
 
 
 }

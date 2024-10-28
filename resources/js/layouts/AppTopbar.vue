@@ -1,7 +1,8 @@
 <template>
-    <div class="layout-topbar">
+    <div class="layout-topbar ">
         <router-link to="/" class="layout-topbar-logo">
-            <img src="/images/logo.svg" alt="logo" />
+            <img class="San Martin" src="/images/images.png" alt="logo" />
+
             <span></span>
         </router-link>
 
@@ -21,17 +22,18 @@
                 <i class="pi pi-user"></i>
                 <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm">
                     <li>
-                        <router-link :to="{ name: 'profile.index' }" class="dropdown-item">Perfil</router-link>
+                        <p class="dropdown-item" @click="toadmin()">Dashboard</p>
+
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">Preferencias</a>
+                        <a class="dropdown-item" href="#">Preferencies</a>
                     </li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
                     <li>
                         <a class="dropdown-item" :class="{ 'opacity-25': processing }" :disabled="processing"
-                            href="javascript:void(0)" @click="logout">Cerrar sessión</a>
+                            href="javascript:void(0)" @click="logout">Tancar sessió</a>
                     </li>
                 </ul>
 
@@ -49,12 +51,13 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import { useLayout } from '../composables/layout';
 import { useStore } from 'vuex';
 import useAuth from "@/composables/auth";
+import { useRouter } from 'vue-router';
 
 const { onMenuToggle } = useLayout();
 const store = useStore();
 const user = computed(() => store.state.auth.user)
 const { processing, logout } = useAuth();
-
+const router = useRouter();
 const topbarMenuActive = ref(false);
 
 const onTopBarMenuButton = () => {
@@ -66,6 +69,14 @@ const topbarMenuClasses = computed(() => {
         'layout-topbar-menu-mobile-active': topbarMenuActive.value
     };
 });
+function toadmin()
+{
+console.log('to admin');
+router.push({name: 'profile.index'})
+
+
+}
+
 
 
 </script>
@@ -78,5 +89,10 @@ const topbarMenuClasses = computed(() => {
     border: 0;
     border-radius: 0%;
     padding: 1em;
+}
+.beneit{
+    height: 5.5rem !important;
+    margin-left: 30px !important;
+    margin-top: 10px;
 }
 </style>

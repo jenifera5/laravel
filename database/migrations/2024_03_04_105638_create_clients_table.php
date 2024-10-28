@@ -13,23 +13,19 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('surname1');
-            $table->string('surname2');
-            $table->string('nif');
-            $table->text('direccio');
-            $table->string('telefon');
-            $table->string('telefon2');
-            $table->string('email');
+            $table->string('name')->nullable();
+            $table->string('surname1')->nullable();
+            $table->string('surname2')->nullable();
+            $table->string('nif')->nullable();
+            $table->string('telefon')->nullable();
+            $table->string('telefon2')->nullable();
+            $table->string('email')->nullable();
 
-            $table->unsignedBigInteger('cp_id');
+
+            //->nullable()->unique();
+
             $table->unsignedBigInteger('idioma_id');
-            $table->unsignedBigInteger('provincia_id');
-
-            $table->foreign('cp_id')->references('id')->on('cps');
-            $table->foreign('provincia_id')->references('id')->on('provincies');
             $table->foreign('idioma_id')->references('id')->on('idiomes');
-
 
             $table->timestamps();
         });

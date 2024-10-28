@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('presupuestos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_albaran');
-            $table->foreign('id_albaran')->references('id')->on('albaranes');
+            $table->foreign('id_albaran')->references('id')->on('albarans');
             $table->decimal('precio_final', 10, 2);
             $table->decimal('iva', 5, 2);
             $table->timestamps();

@@ -5,7 +5,7 @@
                 <div class="card-body">
                     <form @submit.prevent="submitForm">
                         <div class="mb-3">
-                            <label for="post-title" class="form-label">Name</label>
+                            <label for="post-title" class="form-label">Nom </label>
                             <input v-model="post.name" id="post-title" type="text" class="form-control">
                             <div class="text-danger mt-1">
                                 {{ errors.name }}
@@ -16,9 +16,50 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input v-model="post.email" id="email" type="email" class="form-control">
+                            <label for="post-apellido" class="form-label"> Cognom </label>
+                            <input v-model="post.apellido" id="post-title" type="text" class="form-control">
+                            <div class="text-danger mt-1">
+                                {{ errors.apellido }}
+                            </div>
+                            <div class="text-danger mt-1">
+                                <div v-for="message in validationErrors?.apellido">
+                                    {{ message }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="post-dni" class="form-label"> Dni </label>
+                            <input v-model="post.dni" id="post-title" type="text" class="form-control">
+                            <div class="text-danger mt-1">
+                                {{ errors.dni }}
+                            </div>
+                            <div class="text-danger mt-1">
+                                <div v-for="message in validationErrors?.dni">
+                                    {{ message }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="post-direccion" class="form-label"> Direcció </label>
+                            <input v-model="post.direccion" id="post-title" type="text" class="form-control">
+                            <div class="text-danger mt-1">
+                                {{ errors.direccion }}
+                            </div>
+                            <div class="text-danger mt-1">
+                                <div v-for="message in validationErrors?.direccion">
+                                    {{ message }}
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="emailreset" class="form-label">Email</label>
+                            <input v-model="post.email" id="emailreset"  type="email" class="form-control">
                             <div class="text-danger mt-1">
                                 {{ errors.email }}
                             </div>
@@ -28,6 +69,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
                             <input v-model="post.password" id="password" type="password" class="form-control">
@@ -43,7 +85,7 @@
                         <!-- Role -->
                         <div class="mb-3">
                             <label for="post-category" class="form-label">
-                                Role
+                                Rol
                             </label>
                             <v-select multiple v-model="post.role_id" :options="roleList" :reduce="role => role.id" label="name" class="form-control" />
                             <div class="text-danger mt-1">
@@ -59,8 +101,8 @@
                         <div class="mt-4">
                             <button :disabled="isLoading" class="btn btn-primary">
                                 <div v-show="isLoading" class=""></div>
-                                <span v-if="isLoading">Processing...</span>
-                                <span v-else>Save</span>
+                                <span v-if="isLoading">Processant...</span>
+                                <span v-else>Guardar</span>
                             </button>
                         </div>
                     </form>

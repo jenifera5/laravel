@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('direccions', function (Blueprint $table) {
+        Schema::create('municipis', function (Blueprint $table) {
             $table->id();
-            $table->string('cp');
-            $table->unsignedBigInteger('provincia_id');
-            $table->unsignedBigInteger('municipi_id');
-            $table->foreign('provincia_id')->references('id')->on('provincies');
-            $table->foreign('municipi_id')->references('id')->on('municipis');
+            $table->string('name');
+            $table->unsignedBigInteger('id_provincia');
+            $table->foreign('id_provincia')->references('id')->on('provincies');
             $table->timestamps();
         });
     }
@@ -27,6 +25,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('direccions');
+        Schema::dropIfExists('municipis');
+
     }
 };

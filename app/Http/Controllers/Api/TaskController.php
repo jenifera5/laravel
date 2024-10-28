@@ -3,47 +3,54 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Task;
-use Symfony\Contracts\Service\Attribute\Required;
+use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+    //Funció que torna les tasques que tenim
     public function index()
     {
         $tareas = Task::all();
         return $tareas;
-    }
 
-    public function store(Request $request)
-    {
-        $request->validate(['name'=>'Required|max:10',
-                            'description'=>'required'
-    ]);
-        $data = $request->all();
-        $task = Task ::create($data);
-       
-        $response = [
-            'success'=> true,
-            'message'=>'la tarea se ha creado correctamente',
-            'data'=> $task
-        ];
-        return response()->json();
     }
-    public function update($id, Request $request)
-    {
-        $request->validate(['name'=>'Required|max:10',
-        'description'=>'required'
+    //Funció que crea una nova tasca i la insereix a BBDD
+    public function store(request $request){
+
+        $request->validate([
+            //Buscar a la documentació: Custom Validation Rules
+            'name' => 'required',
+            'description' => 'required',
         ]);
+
+        $data = $request->all();
+        $task = Task::create($data);
+        $response = [
+            'success' => true,
+            'data' => $task,
+            'message' => 'Tarea creada correctamente'
+        ];
+        return response()->json($response);
+
+    }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            //Buscar a la documentació: Custom Validation Rules
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+
         $data = $request->all();
         $task = Task::find($id);
-        $task-> update($data);
+        $task->update($data);
         $response = [
-            'success'=> true,
-            'message'=>'la tarea se ha creado correctamente',
-            'data'=> $task
+            'success' => true,
+            'data' => $task,
+            'message' => 'Tarea actualizada correctamente'
         ];
-        return response()->json();
-        
+        return response()->json($response);
     }
+
 }

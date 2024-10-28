@@ -5,8 +5,8 @@ const i18n = createI18n({
     legacy: false, // you must set `false`, to use Composition API
     globalInjection: true,
     runtimeOnly: false,
-    locale: 'en', // set locale
-    fallbackLocale: 'en', // set fallback locale
+    locale: 'es', // set locale
+    fallbackLocale: 'es', // set fallback locale
     messages: {} // set locale messages
 })
 

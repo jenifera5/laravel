@@ -15,17 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('nif');
-            $table->string('telefon');
-            $table->string('telefon2');
+            $table->string('telefon')->nullable();
+            $table->string('telefon2')->nullable();
             $table->string('email');
             $table->string('contacte');
-            $table->boolean('enCurs');
-            $table->string('diaCobrament');
-            $table->string('observacions');
-            $table->unsignedBigInteger('direccio_id');
-            $table->unsignedBigInteger('provincia_id');
-            $table->foreign('direccio_id')->references('id')->on('direccions');
-            $table->foreign('provincia_id')->references('id')->on('provincies');
+            $table->boolean('encurs')->nullable();
+            $table->double('diacobrament')->nullable();
+            $table->string('observacions')->nullable();
+
 
 
             $table->timestamps();

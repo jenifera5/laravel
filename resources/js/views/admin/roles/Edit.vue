@@ -7,7 +7,7 @@
                         <!-- Title -->
                         <div class="mb-3">
                             <label for="post-title" class="form-label">
-                                Title
+                                Rol
                             </label>
                             <div class="form-outline w-25">
                                 <input v-model="role.name" id="post-title" type="text" class="form-control">
@@ -22,8 +22,8 @@
                             </div>
                         </div>
                         <DualListBox
-                            leftLabel="Available Permissions"
-                            rightLabel="Current Permissions"
+                            leftLabel="Permisos Dispon."
+                            rightLabel="Permisos Actuals"
                             :leftData="availablePermissions"
                             :rightData="currentPermissions"
                             v-on:onChangeList="onChangeList"
@@ -32,8 +32,8 @@
                         <div class="mt-4">
                             <button :disabled="isLoading" class="btn btn-primary">
                                 <div v-show="isLoading" class=""></div>
-                                <span v-if="isLoading">Processing...</span>
-                                <span v-else>Update</span>
+                                <span v-if="isLoading">Processant...</span>
+                                <span v-else>Actualitza</span>
                             </button>
                         </div>
                     </form>

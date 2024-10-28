@@ -1,6 +1,14 @@
 <template>
-    <div class="grid">
-        <div class="col-12 lg:col-6 xl:col-3">
+    <div class="card p-fluid">
+    <div class="d-flex justify-content-center">
+        <img src="/images/empezar.png" class="w-7 p-8">
+        <!-- <div class="col-4">
+            <div class="startt">
+                <img src="/images/empezar.png">
+            </div>
+        </div> -->
+    </div>
+        <!-- <div class="col-12 lg:col-6 xl:col-3">
             <div class="card mb-0">
                 <div class="flex justify-content-between mb-3">
                     <div>
@@ -223,8 +231,8 @@
                     </li>
                 </ul>
             </div>
-            
-        </div>
+
+        </div> -->
     </div>
 </template>
 
@@ -232,5 +240,4 @@
 </script>
 
 <style scoped>
-
 </style>

@@ -7,10 +7,12 @@
                         <h5 class="card-title">Todas las tareas</h5>
                         <div>
                             <router-link :to="{name: 'task.create'}" class="btn btn-success">Nueva Tarea</router-link>
-                           <!-- <button class="btn btn-success" type="button">Nueva Tarea</button> -->
+                            <!--button class="btn btn-success" type="button">Nueva Tarea</button-->
                         </div>
                     </div>
- 
+
+                    <!--mostrar varible por pantalla : {{ test }}-->
+
 
                     <table class="table table-hover table-sm">
                         <thead class="bg-dark text-light">
@@ -29,7 +31,7 @@
                                 <td>{{task.name}}</td>
                                 <td>{{task.description}}</td>
                                 <td>{{task.date_open}}</td>
-                                <th>{{task.date_close}}</th>
+                                <td>{{task.date_close}}</td>
                                 <td class="text-center">
                                     <a class="btn btn-warning mr-1">Edit</a>
                                     <button class="btn btn-danger">Delete</button>
@@ -41,27 +43,28 @@
             </div>
         </div>
     </div>
- </template>
- 
- 
- <script setup>
-    import {ref,onMounted} from "vue";
-    const tasks = ref();
-    onMounted(() => [
-       // console.log(Vista cargada)
+</template>
+
+
+<script setup>
+import { ref, onMounted } from "vue";
+
+const tasks = ref()
+
+//el que hi ha dins del onmounted es una funció anònima ()=>
+onMounted(()=>{
+
+        //console.log('Hola que tal')
         axios.get('/api/tasks')
-        .then(response => {
-            //console.log(response);  
-            tasks.value =response.data;
-        })
-    ])
- 
- </script>
- 
- 
- <style>
- 
- 
- </style>
- 
- 
+            .then(response =>{
+                console.log(response);
+                tasks.value = response.data;
+            })
+
+    })
+
+
+</script>
+
+
+<style></style>

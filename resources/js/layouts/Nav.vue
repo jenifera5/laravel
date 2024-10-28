@@ -1,7 +1,7 @@
 <template>
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm p-0">
         <div class="container">
-            <router-link to="/" class="navbar-brand">DAW 2</router-link>
+            <router-link to="/" class="navbar-brand p-0" ><img class="pt-2" height="150px" src="/images/images.png" alt="logo"  /></router-link>
             <a class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </a>
@@ -13,18 +13,18 @@
                         <li class="nav-item">
                             <router-link to="/" class="nav-link" aria-current="page">{{ $t('home') }}</router-link>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <router-link :to="{ name : 'public-posts.index'}" class="nav-link">Blog</router-link>
-                        </li>
+                        </li> -->
                     <template v-if="!user?.name">
                         <li class="nav-item">
                             <router-link class="nav-link" to="/login"
                             >{{ $t('login') }}</router-link
                             >
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <router-link class="nav-link" to="/register">{{ $t('register') }}</router-link>
-                        </li>
+                        </li> -->
                     </template>
                     <li v-if="user?.name" class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

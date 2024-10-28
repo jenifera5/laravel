@@ -39,7 +39,7 @@ export default [
         // redirect: { name: 'login' },
         component: GuestLayout,
         children: [
-           
+
             {
                 path: '/',
                 name: 'home',
@@ -154,7 +154,7 @@ export default [
                     }
                 ]
             },
-        
+
             {
                 name: 'categories',
                 path: 'categories',
@@ -170,9 +170,9 @@ export default [
                         name: 'categories.create',
                         path: 'create',
                         component: () => import('../views/admin/categories/Create.vue'),
-                        meta: { 
+                        meta: {
                             breadCrumb: 'Add new category' ,
-                            linked: false, 
+                            linked: false,
                         }
                     },
                     {
@@ -187,24 +187,155 @@ export default [
                 ]
             },
             {
+                //CREAR RUTA PARA TAREAS
                 name: 'tasks',
                 path: 'tasks',
-                meta: { breadCrumb: 'tasks'},
+                meta: { breadCrumb: 'Tareas'},
                 children: [
                     {
-                        name: 'tasks.index',
+                        name: 'task.index',
                         path: '',
-                        component: () => import('../views/admin/tasks/Index.vue'),
-                        meta: { breadCrumb: 'View task' }
+                        component: () => import('../views/admin/tasks/index.vue'),
+                        meta: { breadCrumb: 'Ver Tareas' }
                     },
+
                     {
                         name: 'task.create',
                         path: 'create',
-                        component: () => import('../views/admin/tasks/create.vue'),
-                        meta: { breadCrumb: ' Create task' }
-                    },
+                        component: () => import('../views/admin/tasks/Create.vue'),
+                        meta: { breadCrumb: 'Nueva Tarea' }
+                    }
+                ]
+            },
+            {
+                //CREAR RUTA PER CLIENTS
 
-                    
+                name: 'clients',
+                path:'clients',
+                meta: { breadCrumb: 'Clients'},
+                children: [
+                    {
+                        name: 'clients.index',
+                        path: '',
+                        component: () => import('../views/admin/clients/index.vue'),
+                        meta: { breadCrumb: 'Llistat Clients' }
+                    },
+                    // {
+                    //     name: 'clients.create',
+                    //     path: 'create',
+                    //     component: () => import('../views/admin/clients/create.vue'),
+                    //     meta: { breadCrumb: 'Nou Client' }
+                    // },
+                    // {
+                    //     name: 'clients.edit',
+                    //     path: 'edit',
+                    //     component: () => import('../views/admin/clients/edit.vue'),
+                    //     meta: { breadCrumb: 'Gestió de clients' }
+                    // }
+
+                ]
+            },
+
+
+            {
+                //CREAR RUTA PER PROVEIDORS
+
+                name: 'proveidors',
+                path:'proveidors',
+                meta: { breadCrumb: 'Proveidors'},
+                children: [
+                    {
+                        name: 'proveidors.index',
+                        path: '',
+                        component: () => import('../views/admin/proveidors/Index.vue'),
+                        meta: { breadCrumb: 'Llistat Proveidors' }
+                    },
+                    {
+                        name: 'proveidors.create',
+                        path: 'create',
+                        component: () => import('../views/admin/proveidors/Create.vue'),
+                        meta: { breadCrumb: 'Nou Proveidor' }
+                    },
+                    //{
+                      //  name: 'proveidors.edit',
+                    // path: 'edit',
+                    //  component: () => import('../views/admin/proveidors/Edit.vue'),
+                      //  meta: { breadCrumb: 'Editar Proveidor' }
+                    //}
+                ]
+            },
+            {
+                //CREAR RUTA PER MATERIALS
+
+                name: 'materials',
+                path:'materials',
+                meta: { breadCrumb: 'Materials'},
+                children: [
+                    {
+                        name: 'materials.index',
+                        path: '',
+                        component: () => import('../views/admin/materials/Index.vue'),
+                        meta: { breadCrumb: 'Llistat Materials' }
+                    },
+                    {
+                        name: 'materials.create',
+                        path: 'create',
+                        component: () => import('../views/admin/materials/Create.vue'),
+                        meta: { breadCrumb: 'Nou Material' }
+                    },
+                   // {
+                     //   name: 'materials.edit',
+                       // path: 'edit',
+                        //component: () => import('../views/admin/materials/Edit.vue'),
+                        //meta: { breadCrumb: 'Editar Material' }
+                    //}
+                ]
+            },
+            //CREAR RUTA PER A ODRES DE TREBALL
+            {
+                name: 'ordre.treball',
+                path: 'ordretreballs',
+                meta: { breadCrumb: 'Ordre Treball' },
+                children: [
+                    {
+                        name: 'ordreTreballs.index',
+                        path: '',
+                        component: () => import('../views/admin/ordreTreballs/Index.vue'),
+                        meta: { breadCrumb: 'Ordres Treball Actives' }
+                    },
+                    {
+                        name: 'ordreTreballs.print',
+                        path: '',
+                        component: () => import('../views/admin/ordreTreballs/print.vue'),
+                        meta: { breadCrumb: 'Ordres Treball Actives' }
+                    },
+                ]
+            },
+            {
+                //CREAR RUTA PER ALBARANS
+
+                name: 'albarans',
+                path:'albarans',
+                meta: { breadCrumb: 'albarans'},
+                children: [
+                    {
+                        name: 'albarans.index',
+                        path: '',
+                        component: () => import('../views/admin/Albarans/Index.vue'),
+                        meta: { breadCrumb: 'Llistat Albarans' }
+                    },
+                    {
+                        name: 'albarans.create',
+                        path: 'create',
+                        component: () => import('../views/admin/Albarans/Create.vue'),
+                        meta: { breadCrumb: 'Nou Albaran' }
+                    },
+                    //{
+                      //  name: 'albarans.edit',
+                        //path: 'edit',
+                        //component: () => import('../views/admin/Albarans/Edit.vue'),
+                        //meta: { breadCrumb: 'Editar Albaran' }
+                    //}
                 ]
             },
             {
@@ -222,16 +353,16 @@ export default [
                         name: 'permissions.create',
                         path: 'create',
                         component: () => import('../views/admin/permissions/Create.vue'),
-                        meta: { 
+                        meta: {
                             breadCrumb: 'Create Permission',
-                            linked: false,  
+                            linked: false,
                         }
                     },
                     {
                         name: 'permissions.edit',
                         path: 'edit/:id',
                         component: () => import('../views/admin/permissions/Edit.vue'),
-                        meta: { 
+                        meta: {
                             breadCrumb: 'Permission Edit',
                             linked: false,
                         }
@@ -244,37 +375,37 @@ export default [
                 name: 'roles.index',
                 path: 'roles',
                 component: () => import('../views/admin/roles/Index.vue'),
-                meta: { breadCrumb: 'Roles' }
+                meta: { breadCrumb: 'Rols' }
             },
             {
                 name: 'roles.create',
                 path: 'roles/create',
                 component: () => import('../views/admin/roles/Create.vue'),
-                meta: { breadCrumb: 'Create Role' }
+                meta: { breadCrumb: 'Crear Rol' }
             },
             {
                 name: 'roles.edit',
-                path: 'roles/edit/:id',
+                path: 'roles/edit-:id',//canvio la ruta amb un guió (edit-) pq no ens deixi accdeir amb el breadcrumb
                 component: () => import('../views/admin/roles/Edit.vue'),
-                meta: { breadCrumb: 'Role Edit' }
+                meta: { breadCrumb: 'Editar Rol' }
             },
             {
                 name: 'users.index',
                 path: 'users',
                 component: () => import('../views/admin/users/Index.vue'),
-                meta: { breadCrumb: 'Users' }
+                meta: { breadCrumb: 'Usuaris' }
             },
             {
                 name: 'users.create',
                 path: 'users/create',
                 component: () => import('../views/admin/users/Create.vue'),
-                meta: { breadCrumb: 'Add New' }
+                meta: { breadCrumb: 'Nou usuari' }
             },
             {
                 name: 'users.edit',
-                path: 'users/edit/:id',
+                path: 'users/edit-:id',//canvio la ruta amb un guió (edit-) pq no ens dix accdeir amb el breadcrumb
                 component: () => import('../views/admin/users/Edit.vue'),
-                meta: { breadCrumb: 'User Edit' }
+                meta: { breadCrumb: 'Editar Usuari',}
             },
         ]
     },

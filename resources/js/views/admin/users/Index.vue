@@ -3,14 +3,14 @@
         <div class="col-md-12">
             <div class="card border-0">
                 <div class="card-header bg-transparent">
-                    <h5 class="float-start">Users</h5>
+                    <h5 class="float-start">Usuaris</h5>
                     <router-link v-if="can('user-list')" :to="{ name: 'users.create' }" class="btn btn-primary btn-sm float-end">
-                        Add New
+                        Nou Usuari
                     </router-link>
                 </div>
                 <div class="card-body shadow-sm">
                     <div class="mb-4">
-                        <input v-model="search_global" type="text" placeholder="Search..."
+                        <input v-model="search_global" type="text" placeholder="Busca..."
                                class="form-control w-25">
                     </div>
                     <div class="table-responsive">
@@ -20,12 +20,14 @@
                                 <th class="px-6 py-3 bg-gray-50 text-left">
                                     <input v-model="search_id" type="text"
                                            class="inline-block mt-1 form-control"
-                                           placeholder="Filter by ID">
+                                           style="width: 120px; text-align: center;"
+                                           placeholder="Filtra per ID">
                                 </th>
                                 <th class="px-6 py-3 bg-gray-50 text-left">
                                     <input v-model="search_title" type="text"
                                            class="inline-block mt-1 form-control"
-                                           placeholder="Filter by Title">
+                                           style="width: 120px; text-align: center;"
+                                           placeholder="Filtra per Nom">
                                 </th>
                                 <th class="px-6 py-3 text-start"></th>
                                 <th class="px-6 py-3 text-start"></th>
@@ -55,7 +57,7 @@
                                          @click="updateOrdering('title')">
                                         <div class="font-medium text-uppercase"
                                              :class="{ 'font-bold text-blue-600': orderColumn === 'title' }">
-                                            Name
+                                            Nom
                                         </div>
                                         <div class="select-none">
                                 <span :class="{
@@ -93,7 +95,7 @@
                                          @click="updateOrdering('created_at')">
                                         <div class="leading-4 font-medium text-gray-500 uppercase tracking-wider"
                                              :class="{ 'font-bold text-blue-600': orderColumn === 'created_at' }">
-                                            Created at
+                                            Data creació
                                         </div>
                                         <div class="select-none">
                                 <span :class="{
@@ -108,7 +110,7 @@
                                     </div>
                                 </th>
                                 <th class="px-6 py-3 bg-gray-50 text-left">
-                                    Actions
+                                    Accions
                                 </th>
                             </tr>
                             </thead>
@@ -128,11 +130,13 @@
                                 </td>
                                 <td class="px-6 py-4 text-sm">
                                     <router-link v-if="can('user-edit')"
-                                                 :to="{ name: 'users.edit', params: { id: post.id } }"
-                                                 class="badge bg-primary">Edit
-                                    </router-link>
-                                    <a href="#" v-if="can('user-delete')" @click.prevent="deleteUser(post.id)"
-                                       class="ms-2 badge bg-danger">Delete</a>
+                                        :to="{ name: 'users.edit', params: { id: post.id } }"
+                                        class="ms-2 badge bg-primary"
+                                        style="width: 70px; text-align: center;">Editar</router-link>
+                                      <a href="#" v-if="can('user-delete')"
+                                        @click.prevent="deleteUser(post.id)"
+                                        class="ms-2 badge bg-danger"
+                                        style="width: 70px; text-align: center;">Esborrar</a>
                                 </td>
                             </tr>
                             </tbody>

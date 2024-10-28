@@ -4,7 +4,7 @@
         <div class="layout-sidebar">
             <app-sidebar></app-sidebar>
         </div>
-        
+
         <div class="layout-main-container ">
             <Breadcrumb :home="home" :model="crumbs" class="mb-2">
                     <template #item="{ item, props }">
@@ -20,7 +20,7 @@
                     </template>
                 </Breadcrumb>
             <div class="layout-main">
-                
+
 
                 <Suspense>
                 <router-view></router-view>
@@ -74,7 +74,7 @@ const crumbs = computed(() => {
       pathArray.shift()
 
       let breadcrumbs = pathArray.reduce((breadcrumbArray, path, idx) => {
-       
+
         breadcrumbArray.push({
             route: breadcrumbArray[idx - 1]
             ? "" + breadcrumbArray[idx - 1].route + "/" + path
@@ -144,9 +144,9 @@ const isOutsideClicked = (event) => {
 
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 .p-breadcrumb .p-breadcrumb-list {
-    margin: 0 !important; 
+    margin: 0 !important;
     padding: 0;
     list-style-type: none;
     display: flex;
@@ -155,7 +155,7 @@ const isOutsideClicked = (event) => {
 }
 
 ol {
-    margin: 0 !important; 
+    margin: 0 !important;
     padding: 0;
     list-style-type: none;
     display: flex;

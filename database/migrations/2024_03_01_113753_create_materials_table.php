@@ -14,19 +14,23 @@ return new class extends Migration
         Schema::create('materials', function (Blueprint $table) {
             $table->id();
             $table->string('codigo')->unique();
-            $table->unsignedBigInteger('marca_id');
-            $table->unsignedBigInteger('familia_id');
             $table->text('description');
             $table->integer('stock');
             $table->string('numero_serie')->nullable();
-            $table->unsignedBigInteger('proveidors_id');
-            $table->foreign('marca_id')->references('id')->on('marcas');
-            $table->foreign('familia_id')->references('id')->on('familias');
-            $table->foreign('proveidors_id')->references('id')->on('proveidors');
-            $table->decimal('precioCoste', 8, 2);
+            $table->decimal('preciocoste', 8, 2);
             $table->decimal('pvp', 8, 2);
-            $table->boolean('encurso')->default(false);
-            $table->text('observaciones')->nullable();
+            $table->decimal('margen', 8, 2)->nullable();
+            $table->boolean('encurs')->default(false);
+            $table->text('observacions')->nullable();
+            $table->string('img')->nullable();
+
+            $table->foreign('marca_id')->references('id')->on('marcas');
+            $table->unsignedBigInteger('marca_id')->nullable();
+            $table->foreign('familia_id')->references('id')->on('familias');
+            $table->unsignedBigInteger('familia_id')->nullable();
+            $table->foreign('proveidor_id')->references('id')->on('proveidors');
+            $table->unsignedBigInteger('proveidor_id')->nullable();
+
             $table->timestamps();
         });
 
@@ -41,3 +45,4 @@ return new class extends Migration
         Schema::dropIfExists('materials');
     }
 };
+
